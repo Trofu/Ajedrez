@@ -5,16 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Rook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2cgeInbOOdxnRLxh0IDmDdiHVB1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -23,12 +38,29 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/jespinosac/IdeaProjects/LearningCoursePOO",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.21-corretto-11.0.21-f644763e9732-a9dfd5e7" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -38,7 +70,31 @@
       <option name="presentableId" value="Default" />
       <updated>1708537571916</updated>
       <workItem from="1708537572917" duration="1000" />
+      <workItem from="1708616257558" duration="4521000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/es/ieslavereda/Main.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/es/ieslavereda/Pawn.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

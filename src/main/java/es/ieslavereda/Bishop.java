@@ -1,50 +1,61 @@
 package es.ieslavereda;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Bishop extends Piece {
     public Bishop(Board board, Coordinate position, Type type) {
         super(type.getType(), board.getCellAt(position));
     }
 
     //put your task here
-    @Override
-    protected Coordinate[] getNextMovements() {
+    public Set<Coordinate> getNextMovements(){
         return getNextMovementsAsBishop(this);
     }
 
-    public static Coordinate[] getNextMovementsAsBishop(Piece piece){
-        Coordinate[] nextMovements = new Coordinate[0];
+    public static Set<Coordinate> getNextMovementsAsBishop(Piece piece) {
+
+        Set<Coordinate> nextMovements = new LinkedHashSet<>();
         Coordinate posicion = piece.getCell().getCoordinate();
         Coordinate c;
         Board board = piece.getCell().getBoard();
+
+        // Comprobamos que la ficha este en el tablero
+        if (posicion == null)
+            return nextMovements;
+
+        // Diagonal superior izq
         c = posicion;
         do {
             c = c.up().left();
             if (piece.canAddToNextMovements(c))
-                nextMovements = Tool.add(c, nextMovements);
+                nextMovements.add(c);
+
         } while (board.contains(c) && board.getCellAt(c).getPiece() == null);
+
+        // Diagonal superior der
         c = posicion;
         do {
             c = c.up().right();
             if (piece.canAddToNextMovements(c))
-                nextMovements = Tool.add(c, nextMovements);
+                nextMovements.add(c);
         } while (board.contains(c) && board.getCellAt(c).getPiece() == null);
+
+        // Diagonal inferior izq
         c = posicion;
         do {
             c = c.down().left();
             if (piece.canAddToNextMovements(c))
-                nextMovements = Tool.add(c, nextMovements);
+                nextMovements.add(c);
         } while (board.contains(c) && board.getCellAt(c).getPiece() == null);
+
+        // Diagonal inferior der
         c = posicion;
         do {
             c = c.down().right();
             if (piece.canAddToNextMovements(c))
-                nextMovements = Tool.add(c, nextMovements);
+                nextMovements.add(c);
         } while (board.contains(c) && board.getCellAt(c).getPiece() == null);
-
-        for (int i = 0; i < nextMovements.length; i++) {
-            System.out.print("["+nextMovements[i]+"] ");
-        }
-        System.out.println();
 
         return nextMovements;
     }

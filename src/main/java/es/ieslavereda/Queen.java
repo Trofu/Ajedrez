@@ -1,20 +1,23 @@
 package es.ieslavereda;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Queen extends Piece{
     public Queen(Board board, Coordinate position, Type type) {
         super(type.getType(), board.getCellAt(position));
     }
 
     //put your task here
-    @Override
-    protected Coordinate[] getNextMovements() {
-        Coordinate[] nextMovements = new Coordinate[0];
-        nextMovements = Bishop.getNextMovementsAsBishop(this);
+    public Set<Coordinate> getNextMovements(){
+        Set<Coordinate> nextMovements = new LinkedHashSet<>();
 
-        Coordinate[] nextMovementsRook = new Coordinate[0];
-        nextMovementsRook=Rook.getNextMovementsAsRook(this);
-        for (Coordinate coordinate:nextMovementsRook)
-            nextMovements=Tool.add(coordinate,nextMovements);
+        for (Coordinate c : Bishop.getNextMovementsAsBishop(this))
+            nextMovements.add(c);
+
+        for (Coordinate c : Rook.getNextMovementsAsRook(this))
+            nextMovements.add(c);
+
         return nextMovements;
     }
 

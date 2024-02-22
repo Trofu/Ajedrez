@@ -1,66 +1,50 @@
 package es.ieslavereda;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Knight extends Piece {
 
     public Knight(Board board, Coordinate position, Knight.Type type) {
         super(type.getType(), board.getCellAt(position));
     }
 
-    @Override
-    public Coordinate[] getNextMovements() {
+    public Set<Coordinate> getNextMovements() {
 
-        Coordinate[] nextMovements = new Coordinate[0];
+        Set<Coordinate> nextMovements = new LinkedHashSet<>();
 
         Coordinate myPosition = getCell().getCoordinate();
         Coordinate c;
 
         //Up
         c = myPosition.up().up().left();
-        if(canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
+        if(canAddToNextMovements(c)) nextMovements.add(c);
 
         c = myPosition.up().up().right();
-        if(canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
+        if(canAddToNextMovements(c)) nextMovements.add(c);
 
         //Down
         c = myPosition.down().down().left();
-        if(canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
+        if(canAddToNextMovements(c)) nextMovements.add(c);
 
         c = myPosition.down().down().right();
-        if(canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
+        if(canAddToNextMovements(c)) nextMovements.add(c);
 
         //Left
         c = myPosition.left().left().up();
-        if(canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
+        if(canAddToNextMovements(c)) nextMovements.add(c);
 
         c = myPosition.left().left().down();
-        if(canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
-
+        if(canAddToNextMovements(c)) nextMovements.add(c);
         //Right
         c = myPosition.right().right().up();
-        if(canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
+        if(canAddToNextMovements(c)) nextMovements.add(c);
 
         c = myPosition.right().right().down();
-        if(canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
+        if(canAddToNextMovements(c)) nextMovements.add(c);
 
-        for (int i = 0; i < nextMovements.length; i++) {
-            System.out.print("["+nextMovements[i]+"] ");
-        }
-        System.out.println();
 
         return nextMovements;
-    }
-
-    private boolean canMoveTo(Coordinate c) {
-
-        Board board = getCell().getBoard();
-
-        if(!board.contains(c)) return false;
-
-        if(board.getCellAt(c).isEmpty()) return true;
-
-        if(board.getCellAt(c).getPiece().getColor()!=getColor()) return true;
-
-        return false;
     }
 
     public enum Type {

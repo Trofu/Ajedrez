@@ -1,5 +1,8 @@
 package es.ieslavereda;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class King extends Piece{
     public King(Board board, Coordinate position, Type type) {
         super(type.getType(), board.getCellAt(position));
@@ -7,32 +10,42 @@ public class King extends Piece{
 
     //put your task here
     @Override
-    protected Coordinate[] getNextMovements() {
-        Coordinate[] nextMovements = new Coordinate[0];
+    public Set<Coordinate> getNextMovements() {
 
-        Coordinate myPosition = getCell().getCoordinate();
-        Coordinate c;
+        Coordinate position = getCell().getCoordinate();
+        Set<Coordinate> nextMovements = new LinkedHashSet<>();
 
-        c=myPosition.right();
-        if (canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
-        c=myPosition.left();
-        if (canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
-        c=myPosition.up();
-        if (canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
-        c=myPosition.down();
-        if (canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
-        c=myPosition.right().up();
-        if (canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
-        c=myPosition.right().down();
-        if (canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
-        c=myPosition.left().up();
-        if (canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
-        c=myPosition.left().down();
-        if (canAddToNextMovements(c)) nextMovements = Tool.add(c,nextMovements);
-        for (int i = 0; i < nextMovements.length; i++) {
-            System.out.print("["+nextMovements[i]+"] ");
-        }
-        System.out.println();
+        position.up();
+        if (canAddToNextMovements(position))
+            nextMovements.add(position);
+
+        position.up().right();
+        if (canAddToNextMovements(position))
+            nextMovements.add(position);
+
+        position.right();
+        if (canAddToNextMovements(position))
+            nextMovements.add(position);
+
+        position.down().right();
+        if (canAddToNextMovements(position))
+            nextMovements.add(position);
+
+        position.down();
+        if (canAddToNextMovements(position))
+            nextMovements.add(position);
+
+        position.down().left();
+        if (canAddToNextMovements(position))
+            nextMovements.add(position);
+
+        position.left();
+        if (canAddToNextMovements(position))
+            nextMovements.add(position);
+
+        position.up().left();
+        if (canAddToNextMovements(position))
+            nextMovements.add(position);
 
         return nextMovements;
     }
