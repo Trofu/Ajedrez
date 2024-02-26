@@ -31,18 +31,25 @@ public class Board {
         cells.values().stream().forEach(cell -> cell.removeHighLight());
     }
 
-
+    private DeletedPieceManagerListImp allPieces(){
+        DeletedPieceManagerListImp piece = new DeletedPieceManagerListImp();
+        for (int i = 0; i <8; i++) {
+            piece.addPiece(new Pawn(this,new Coordinate('A',7), Pawn.Type.BLACK));
+        }
+        return piece;
+    }
     @Override
     public String toString() {
-        String aux="    A  B  C  D  E  F  G  H\n";
+        DeletedPieceManagerListImp piece = allPieces();
+        String aux="\t\t    A  B  C  D  E  F  G  H\n";
         for (int row=8;row>= 1;row--){
-            aux+=" " + row +" ";
+            aux+="\t\t " + row +" ";
             for(char col='A';col<='H';col++){
                 aux+=cells.get(new Coordinate(col,row));
             }
             aux+=" " + row + "\n";
         }
-        aux+="    A  B  C  D  E  F  G  H";
+        aux+="\t\t    A  B  C  D  E  F  G  H\n\n\t\t";
         return aux;
     }
 }

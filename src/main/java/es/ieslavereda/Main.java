@@ -54,14 +54,12 @@ public class Main {
         tablero.highLight(caballoB2.getNextMovements());
         System.out.println(tablero);
         */
-        String cord = sc.nextLine();
-        Coordinate Jugador = new Coordinate(cord.charAt(0),cord.charAt(1)-48);
-
+        System.out.println("Which piece do you want to move?\nEnter a coordinate: ");
+        String cord = sc.next();
+        Coordinate Jugador = new Coordinate(cord.toUpperCase().charAt(0),cord.charAt(1)-48);
         Juego j1 = new Juego();
-        j1.getTablero().highLight(j1.getPiezas().get("PB4").getNextMovements());
-        System.out.println(j1.getTablero().toString());
-
-
+        j1.getTablero().highLight(j1.getTablero().getCellAt(Jugador).getPiece().getNextMovements());
+        System.out.println(j1.getTablero());
 
 
 
