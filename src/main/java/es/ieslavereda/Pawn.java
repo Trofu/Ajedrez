@@ -23,41 +23,6 @@ public class Pawn extends Piece{
         Board board = getCell().getBoard();
 
         // posicion delante
-        c = position.up();
-
-        if (board.contains(c) && board.getCellAt(c).getPiece() == null)
-            posicionesCandidatas.add(c);
-
-        // avanza matando
-        c = position.up().left();
-        if (board.contains(c)
-                && (board.getCellAt(c).getPiece() != null && board.getCellAt(c).getPiece().getColor() != getColor()))
-            posicionesCandidatas.add(c);
-
-        c = position.up().right();
-        if (board.contains(c)
-                && (board.getCellAt(c).getPiece() != null && board.getCellAt(c).getPiece().getColor() != getColor()))
-            posicionesCandidatas.add(c);
-
-        // Si esta en la posicion inicial se le permite avanzar 2 posiciones
-        if (position.getNumber() == 2) {
-            c = position.up();
-            if (board.contains(c) && board.getCellAt(c).getPiece() == null) {
-                c = c.up();
-                if (board.contains(c) && board.getCellAt(c).getPiece() == null) {
-                    posicionesCandidatas.add(c);
-                }
-            }
-        }
-        return posicionesCandidatas;
-    }
-    private Set<Coordinate> getNextMovementsAsBlack() {
-        Set<Coordinate> posicionesCandidatas = new LinkedHashSet<>();
-        Coordinate c;
-        Coordinate position = getCell().getCoordinate();
-        Board board = getCell().getBoard();
-
-        // posicion delante
         c = position.down();
 
         if (board.contains(c) && board.getCellAt(c).getPiece() == null)
@@ -79,6 +44,41 @@ public class Pawn extends Piece{
             c = position.down();
             if (board.contains(c) && board.getCellAt(c).getPiece() == null) {
                 c = c.down();
+                if (board.contains(c) && board.getCellAt(c).getPiece() == null) {
+                    posicionesCandidatas.add(c);
+                }
+            }
+        }
+        return posicionesCandidatas;
+    }
+    private Set<Coordinate> getNextMovementsAsBlack() {
+        Set<Coordinate> posicionesCandidatas = new LinkedHashSet<>();
+        Coordinate c;
+        Coordinate position = getCell().getCoordinate();
+        Board board = getCell().getBoard();
+
+        // posicion delante
+        c = position.up();
+
+        if (board.contains(c) && board.getCellAt(c).getPiece() == null)
+            posicionesCandidatas.add(c);
+
+        // avanza matando
+        c = position.up().left();
+        if (board.contains(c)
+                && (board.getCellAt(c).getPiece() != null && board.getCellAt(c).getPiece().getColor() != getColor()))
+            posicionesCandidatas.add(c);
+
+        c = position.up().right();
+        if (board.contains(c)
+                && (board.getCellAt(c).getPiece() != null && board.getCellAt(c).getPiece().getColor() != getColor()))
+            posicionesCandidatas.add(c);
+
+        // Si esta en la posicion inicial se le permite avanzar 2 posiciones
+        if (position.getNumber() == 7) {
+            c = position.up();
+            if (board.contains(c) && board.getCellAt(c).getPiece() == null) {
+                c = c.up();
                 if (board.contains(c) && board.getCellAt(c).getPiece() == null) {
                     posicionesCandidatas.add(c);
                 }

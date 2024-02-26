@@ -17,7 +17,7 @@ public class Cell {
         this.coordinate = coordinate;
         this.piece = null;
 
-        if ((coordinate.getNumber() + coordinate.getLetter()) % 2 == 1) {
+        if ((coordinate.getNumber() + coordinate.getLetter()) % 2 == 0) {
             this.originalColor = Color.BLACK;
         } else {
             this.originalColor = Color.WHITE;

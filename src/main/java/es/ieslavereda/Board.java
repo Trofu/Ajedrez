@@ -6,7 +6,7 @@ public class Board {
     private Map<Coordinate,Cell> cells;
     public Board(){
         cells = new HashMap<>();
-        for (int row=1;row<= 8;row++)
+        for (int row=8;row>= 1;row--)
             for(char col='A';col<='H';col++){
                 Coordinate thew = new Coordinate(col,row);
                 cells.put(thew,new Cell(this,thew));
@@ -27,12 +27,15 @@ public class Board {
         System.out.println(coordinates);
     }
 
+    public void highLight_out(){
+        cells.values().stream().forEach(cell -> cell.removeHighLight());
+    }
 
 
     @Override
     public String toString() {
         String aux="    A  B  C  D  E  F  G  H\n";
-        for (int row=1;row<= 8;row++){
+        for (int row=8;row>= 1;row--){
             aux+=" " + row +" ";
             for(char col='A';col<='H';col++){
                 aux+=cells.get(new Coordinate(col,row));
