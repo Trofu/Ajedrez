@@ -41,6 +41,11 @@ public class Coordinate {
     }
 
     @Override
+    public int hashCode() {
+        return number+letter;
+    }
+
+    @Override
     public String toString() {
         return "(" + letter + "," + number + ")";
     }

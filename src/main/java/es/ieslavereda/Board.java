@@ -1,17 +1,16 @@
 package es.ieslavereda;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Board {
-    private Cell[][] cells;
+    private Map<Coordinate,Cell> cells;
     public Board(){
-        cells = new Cell[8][8];
-
-        for (int row=1;row<= cells.length;row++)
-            for(char col='A';col<='H';col++)
-                cells[row-1][col-'A']=new Cell(this,new Coordinate(col,row));
-
+        cells = new HashMap<>();
+        for (int row=1;row<= 8;row++)
+            for(char col='A';col<='H';col++){
+                Coordinate thew = new Coordinate(col,row);
+                cells.put(thew,new Cell(this,thew));
+            }
     }
     public boolean contains(Coordinate c) {
         if(c.getLetter()<'A' || c.getLetter()>'H') return false;
@@ -21,25 +20,24 @@ public class Board {
     }
     public Cell getCellAt(Coordinate c) {
         if(!contains(c)) return null;
-
-        return cells[c.getNumber()-1][c.getLetter()-'A'];
+        return cells.get(c);
     }
-    public void highLight(List<Coordinate> coordinates){
+    public void highLight(Set<Coordinate> coordinates){
         coordinates.stream().forEach(coordinate -> getCellAt(coordinate).highlight());
+        System.out.println(coordinates);
     }
-    public void highLight(Coordinate[] coordinates){
-        highLight(Arrays.asList(coordinates));
-    }
+
+
 
     @Override
     public String toString() {
         String aux="    A  B  C  D  E  F  G  H\n";
-        int row=1;
-        for(Cell[] rowCell : cells){
+        for (int row=1;row<= 8;row++){
             aux+=" " + row +" ";
-            for(Cell cell : rowCell)
-                aux+=cell;
-            aux+=" " + row++ + "\n";
+            for(char col='A';col<='H';col++){
+                aux+=cells.get(new Coordinate(col,row));
+            }
+            aux+=" " + row + "\n";
         }
         aux+="    A  B  C  D  E  F  G  H";
         return aux;
