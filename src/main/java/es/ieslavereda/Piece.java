@@ -6,7 +6,7 @@ import java.util.*;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 
-public abstract class Piece extends DeletedPieceManagerListImp {
+public abstract class Piece{
 
     private Type type;
     private Cell cell;
@@ -33,7 +33,7 @@ public abstract class Piece extends DeletedPieceManagerListImp {
     public void remove(){
         if(cell!=null)
             cell.setPiece(null);
-        addPiece(this);
+
         cell = null;
     }
 
@@ -60,6 +60,7 @@ public abstract class Piece extends DeletedPieceManagerListImp {
             destination.getPiece().remove();
 
         cell.setPiece(null);
+
         cell = destination;
 
         place();

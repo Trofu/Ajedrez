@@ -49,7 +49,7 @@ public class Board {
             }
             aux+=" " + row + "\n";
         }
-        aux+="\t\t    A  B  C  D  E  F  G  H\n\n\t\t";
+        aux+="\t\t    A  B  C  D  E  F  G  H\n\n";
         return aux;
     }
 }

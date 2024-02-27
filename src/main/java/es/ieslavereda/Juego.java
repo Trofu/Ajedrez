@@ -1,22 +1,26 @@
 package es.ieslavereda;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Juego {
 
     private Board tablero;
-
+    private DeletedPieceManagerListImp vivas;
     private DeletedPieceManagerListImp muertas;
     private List<Piece> piezas;
+
+
 
 
     public Juego() {
         tablero = new Board();
         piezas = new ArrayList<>();
         addPieces();
+        vivas = new DeletedPieceManagerListImp();
+        muertas = new DeletedPieceManagerListImp();
+        for (Piece pice:piezas){
+            vivas.addPiece(pice);
+        }
     }
 
 
@@ -69,5 +73,38 @@ public class Juego {
 
     public void setPiezas(List<Piece> piezas) {
         this.piezas = piezas;
+    }
+
+    public DeletedPieceManagerListImp getMuertas() {
+        return muertas;
+    }
+
+
+
+    public DeletedPieceManagerListImp getVivas() {
+        return vivas;
+    }
+
+
+    public Coordinate pedirCordenada(){
+        Scanner sc = new Scanner(System.in);
+        boolean yes=false;
+        Coordinate coord=null;
+        do {
+            if (yes){
+                System.out.println("Coordenada mal introducida");
+            }
+            String cord = sc.nextLine();
+            char c1 = cord.toUpperCase().charAt(0);
+            int c2 = cord.charAt(1)-48;
+            coord = new Coordinate(c1,c2);
+        } while (yes=!tablero.contains(coord));
+        return coord;
+    }
+
+
+    @Override
+    public String toString(){
+        return getTablero()+"VIVAS\n"+getVivas()+"\nMUERTAS\n"+getMuertas();
     }
 }
