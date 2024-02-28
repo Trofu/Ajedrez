@@ -22,19 +22,17 @@ public abstract class Piece{
     }
 
     public boolean canMoveTo(Coordinate coordinate){
-        boolean encontrado=false;
         Set<Coordinate> nextMovements = getNextMovements();
-        int i=0;
         if(nextMovements.contains(coordinate)){
-            encontrado=true;
+            return true;
         }
-        return encontrado;
+        return false;
     }
     public void remove(){
-        if(cell!=null)
+        if(cell!=null){
             cell.setPiece(null);
-
-        cell = null;
+            cell = null;
+        }
     }
 
     protected boolean canAddToNextMovements(Coordinate c) {
@@ -51,20 +49,14 @@ public abstract class Piece{
     }
 
     public boolean moveTo(Coordinate coordinate){
-        if(cell == null) return false;
-        if(!canMoveTo(coordinate)) return false;
-
-        Cell destination = cell.getBoard().getCellAt(coordinate);
-
-        if(!destination.isEmpty())
-            destination.getPiece().remove();
-
-        cell.setPiece(null);
-
-        cell = destination;
-
+        if(!canMoveTo(coordinate))
+            return false;
+        Board board = cell.getBoard();
+        if(!board.getCellAt(coordinate).isEmpty())
+            board.getCellAt(coordinate).getPiece().remove();
+        remove();
+        setCell(board.getCellAt(coordinate));
         place();
-
         return true;
     }
 
@@ -84,14 +76,11 @@ public abstract class Piece{
 
     @Override
     public String toString(){
-        String resultado;
-
         if(cell==null){
-            resultado = colorize(type.getShape(),type.getColor().getAttribute());
+            return colorize(type.getShape(),type.getColor().getAttribute());
         }else{
-            resultado = colorize(type.getShape(),type.getColor().getAttribute(),cell.getColor().getAttribute());
+            return colorize(type.getShape(),type.getColor().getAttribute(),cell.getColor().getAttribute());
         }
-        return resultado;
     }
 
     protected abstract Set<Coordinate> getNextMovements();

@@ -5,22 +5,13 @@ import java.util.*;
 public class Juego {
 
     private Board tablero;
-    private DeletedPieceManagerListImp vivas;
-    private DeletedPieceManagerListImp muertas;
     private List<Piece> piezas;
-
-
 
 
     public Juego() {
         tablero = new Board();
         piezas = new ArrayList<>();
         addPieces();
-        vivas = new DeletedPieceManagerListImp();
-        muertas = new DeletedPieceManagerListImp();
-        for (Piece pice:piezas){
-            vivas.addPiece(pice);
-        }
     }
 
 
@@ -75,36 +66,38 @@ public class Juego {
         this.piezas = piezas;
     }
 
-    public DeletedPieceManagerListImp getMuertas() {
-        return muertas;
+
+    public Coordinate pedirCordenada1(){
+        System.out.println("Which piece do you want to move?");
+        return pedirCordenada();
     }
-
-
-
-    public DeletedPieceManagerListImp getVivas() {
-        return vivas;
-    }
-
 
     public Coordinate pedirCordenada(){
         Scanner sc = new Scanner(System.in);
-        boolean yes=false;
-        Coordinate coord=null;
+        boolean yes=false,yes2=false,yes3=false;
+        Coordinate coord;
+        System.out.println("Enter a coordinate: ");
         do {
             if (yes){
-                System.out.println("Coordenada mal introducida");
+                System.err.println("Coordenada fuera de los limites");
             }
-            String cord = sc.nextLine();
+            String cord;
+            do {
+                if (yes2){
+                    System.err.println("Coordenada Incorrecta prueba (Letra(A-H)/Numero(1-8))");
+                }
+                cord = sc.nextLine();
+            }while ( yes2 = !(cord.length()==2));
             char c1 = cord.toUpperCase().charAt(0);
             int c2 = cord.charAt(1)-48;
             coord = new Coordinate(c1,c2);
-        } while (yes=!tablero.contains(coord));
+        }while (yes = !tablero.contains(coord));
         return coord;
     }
 
 
     @Override
     public String toString(){
-        return getTablero()+"VIVAS\n"+getVivas()+"\nMUERTAS\n"+getMuertas();
+        return getTablero()+"";
     }
 }

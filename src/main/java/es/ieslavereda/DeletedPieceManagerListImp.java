@@ -30,16 +30,4 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
         return pieceList.remove(pieceList.size()-1);
     }
 
-    @Override
-    public String toString() {
-        String aux="";
-        for (Piece.Type type:Piece.Type.values()){
-            aux+=colorize(" ",Cell.Color.BLACK.getAttribute())+colorize(type.getShape(),type.getColor().getAttribute(),Cell.Color.BLACK.getAttribute())+colorize(" ",Cell.Color.BLACK.getAttribute());
-        }
-        aux+="\n";
-        for (Piece.Type type:Piece.Type.values()){
-            aux+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+count(type),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-        }
-        return aux;
-    }
 }

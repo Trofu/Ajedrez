@@ -2,8 +2,13 @@ package es.ieslavereda;
 
 import java.util.*;
 
+import static com.diogonunes.jcolor.Ansi.colorize;
+
 public class Board {
     private Map<Coordinate,Cell> cells;
+
+    private DeletedPieceManagerListImp vivas;
+
     public Board(){
         cells = new HashMap<>();
         for (int row=8;row>= 1;row--)
@@ -27,20 +32,56 @@ public class Board {
         System.out.println(coordinates);
     }
 
-    public void highLight_out(){
-        cells.values().stream().forEach(cell -> cell.removeHighLight());
+    public void highLight_out(Set<Coordinate> coordinates){
+        coordinates.stream().forEach(coordinate -> getCellAt(coordinate).removeHighLight());
     }
 
-    private DeletedPieceManagerListImp allPieces(){
-        DeletedPieceManagerListImp piece = new DeletedPieceManagerListImp();
-        for (int i = 0; i <8; i++) {
-            piece.addPiece(new Pawn(this,new Coordinate('A',7), Pawn.Type.BLACK));
+    public boolean kingDEAD(){
+        if (vivas.count(Piece.Type.BLACK_KING)==0){
+            System.out.println("\nGANAN LAS BLANCAS");
+            return true;
         }
-        return piece;
+        if (vivas.count(Piece.Type.WHITE_KING)==0){
+            System.out.println("\nGANAN LAS NEGRAS");
+            return true;
+        }
+        return false;
+    }
+
+    private String allPieces(){
+        String count ="";
+        vivas = new DeletedPieceManagerListImp();
+        for(Cell cell:cells.values()){
+            if (!cell.isEmpty()){
+                vivas.addPiece(cell.getPiece());
+            }
+        }
+        count+="\nVIVAS\n";
+        for (Piece.Type type:Piece.Type.values()){
+            count+=colorize(" ",Cell.Color.BLACK.getAttribute())+colorize(type.getShape(),type.getColor().getAttribute(),Cell.Color.BLACK.getAttribute())+colorize(" ",Cell.Color.BLACK.getAttribute());
+        }
+        count+="\n";
+        for (Piece.Type type:Piece.Type.values()){
+            count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+vivas.count(type),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
+        }
+        count+="\nMUERTAS\n";
+        for (Piece.Type type:Piece.Type.values()){
+            count+=colorize(" ",Cell.Color.BLACK.getAttribute())+colorize(type.getShape(),type.getColor().getAttribute(),Cell.Color.BLACK.getAttribute())+colorize(" ",Cell.Color.BLACK.getAttribute());
+        }
+        count+="\n";
+        for (Piece.Type type:Piece.Type.values()){
+            if (type.getShape()=="♟"){
+                count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(8-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
+            }else if (type.getShape()=="♚"||type.getShape()=="♛"){
+                count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(1-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
+            }else {
+                count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(2-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
+            }
+        }
+        return count;
     }
     @Override
     public String toString() {
-        DeletedPieceManagerListImp piece = allPieces();
         String aux="\t\t    A  B  C  D  E  F  G  H\n";
         for (int row=8;row>= 1;row--){
             aux+="\t\t " + row +" ";
@@ -50,6 +91,7 @@ public class Board {
             aux+=" " + row + "\n";
         }
         aux+="\t\t    A  B  C  D  E  F  G  H\n\n";
+        aux+= allPieces();
         return aux;
     }
 }
