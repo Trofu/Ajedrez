@@ -67,10 +67,7 @@ public class Juego {
     }
 
 
-    public Coordinate pedirCordenada1(){
-        System.out.println("Which piece do you want to move?");
-        return pedirCordenada();
-    }
+
 
     public Coordinate pedirCordenada(){
         Scanner sc = new Scanner(System.in);

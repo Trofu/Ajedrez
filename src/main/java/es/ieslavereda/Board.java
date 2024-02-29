@@ -9,7 +9,10 @@ public class Board {
 
     private DeletedPieceManagerListImp vivas;
 
+    private boolean white;
+
     public Board(){
+        white = true;
         cells = new HashMap<>();
         for (int row=8;row>= 1;row--)
             for(char col='A';col<='H';col++){
@@ -30,9 +33,7 @@ public class Board {
     public void highLight(Set<Coordinate> coordinates){
         coordinates.stream().forEach(coordinate -> getCellAt(coordinate).highlight());
         System.out.println(coordinates);
-    }
-
-    public void highLight_out(Set<Coordinate> coordinates){
+        System.out.println(this);
         coordinates.stream().forEach(coordinate -> getCellAt(coordinate).removeHighLight());
     }
 
@@ -80,17 +81,40 @@ public class Board {
         }
         return count;
     }
+
+    public void setWhite(boolean white) {
+        this.white = white;
+    }
+
+    public boolean isWhite() {
+        return white;
+    }
+
     @Override
     public String toString() {
-        String aux="\t\t    A  B  C  D  E  F  G  H\n";
-        for (int row=8;row>= 1;row--){
-            aux+="\t\t " + row +" ";
-            for(char col='A';col<='H';col++){
-                aux+=cells.get(new Coordinate(col,row));
+        String aux ="";
+        if (white){
+            aux="\t\t    A  B  C  D  E  F  G  H\n";
+            for (int row=8;row>= 1;row--){
+                aux+="\t\t " + row +" ";
+                for(char col='A';col<='H';col++){
+                    aux+=cells.get(new Coordinate(col,row));
+                }
+                aux+=" " + row + "\n";
             }
-            aux+=" " + row + "\n";
+            aux+="\t\t    A  B  C  D  E  F  G  H\n\n";
+
+        }else {
+            aux="\t\t    H  G  F  E  D  C  B  A\n";
+            for (int row=1;row<= 8;row++){
+                aux+="\t\t " + row +" ";
+                for(char col='H';col>='A';col--){
+                    aux+=cells.get(new Coordinate(col,row));
+                }
+                aux+=" " + row + "\n";
+            }
+            aux+="\t\t    H  G  F  E  D  C  B  A\n\n";
         }
-        aux+="\t\t    A  B  C  D  E  F  G  H\n\n";
         aux+= allPieces();
         return aux;
     }

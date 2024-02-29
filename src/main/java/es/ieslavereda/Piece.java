@@ -23,10 +23,7 @@ public abstract class Piece{
 
     public boolean canMoveTo(Coordinate coordinate){
         Set<Coordinate> nextMovements = getNextMovements();
-        if(nextMovements.contains(coordinate)){
-            return true;
-        }
-        return false;
+        return nextMovements.contains(coordinate);
     }
     public void remove(){
         if(cell!=null){
