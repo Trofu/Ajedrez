@@ -14,38 +14,39 @@ public class King extends Piece{
 
         Coordinate position = getCell().getCoordinate();
         Set<Coordinate> nextMovements = new LinkedHashSet<>();
+        Coordinate c;
 
-        position.up();
-        if (canAddToNextMovements(position))
-            nextMovements.add(position);
+        c = position.up();
+        if (canAddToNextMovements(c))
+            nextMovements.add(c);
 
-        position.up().right();
-        if (canAddToNextMovements(position))
-            nextMovements.add(position);
+        c =  position.up().right();
+        if (canAddToNextMovements(c))
+            nextMovements.add(c);
 
-        position.right();
-        if (canAddToNextMovements(position))
-            nextMovements.add(position);
+        c =  position.right();
+        if (canAddToNextMovements(c))
+            nextMovements.add(c);
 
-        position.down().right();
-        if (canAddToNextMovements(position))
-            nextMovements.add(position);
+        c = position.down().right();
+        if (canAddToNextMovements(c))
+            nextMovements.add(c);
 
-        position.down();
-        if (canAddToNextMovements(position))
-            nextMovements.add(position);
+        c = position.down();
+        if (canAddToNextMovements(c))
+            nextMovements.add(c);
 
-        position.down().left();
-        if (canAddToNextMovements(position))
-            nextMovements.add(position);
+        c = position.down().left();
+        if (canAddToNextMovements(c))
+            nextMovements.add(c);
 
-        position.left();
-        if (canAddToNextMovements(position))
-            nextMovements.add(position);
+        c = position.left();
+        if (canAddToNextMovements(c))
+            nextMovements.add(c);
 
-        position.up().left();
-        if (canAddToNextMovements(position))
-            nextMovements.add(position);
+        c = position.up().left();
+        if (canAddToNextMovements(c))
+            nextMovements.add(c);
 
         return nextMovements;
     }

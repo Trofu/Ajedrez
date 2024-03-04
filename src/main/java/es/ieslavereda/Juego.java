@@ -17,14 +17,14 @@ public class Juego {
 
     private void addPieces (){
         piezas.add(new King(tablero,new Coordinate('D',1), King.Type.WHITE));
-        piezas.add(new King(tablero,new Coordinate('D',8), King.Type.BLACK));
+        piezas.add(new King(tablero,new Coordinate('D',4), King.Type.BLACK));
         piezas.add(new Queen(tablero,new Coordinate('E',1), Queen.Type.WHITE));
         piezas.add(new Queen(tablero,new Coordinate('E',8), Queen.Type.BLACK));
         piezas.add(new Bishop(tablero,new Coordinate('C',8), Bishop.Type.BLACK));
         piezas.add(new Bishop(tablero,new Coordinate('F',8), Bishop.Type.BLACK));
         piezas.add(new Bishop(tablero,new Coordinate('C',1), Bishop.Type.WHITE));
         piezas.add(new Bishop(tablero,new Coordinate('F',1), Bishop.Type.WHITE));
-        piezas.add(new Knight(tablero,new Coordinate('B',8), Knight.Type.BLACK));
+        piezas.add(new Knight(tablero,new Coordinate('B',5), Knight.Type.BLACK));
         piezas.add(new Knight(tablero,new Coordinate('G',8), Knight.Type.BLACK));
         piezas.add(new Knight(tablero,new Coordinate('B',1), Knight.Type.WHITE));
         piezas.add(new Knight(tablero,new Coordinate('G',1), Knight.Type.WHITE));

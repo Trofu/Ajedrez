@@ -30,4 +30,7 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
         return pieceList.remove(pieceList.size()-1);
     }
 
+    public List<Piece> getPieceList() {
+        return pieceList;
+    }
 }

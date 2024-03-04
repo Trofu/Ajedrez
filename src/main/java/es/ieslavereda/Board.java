@@ -37,6 +37,12 @@ public class Board {
         coordinates.stream().forEach(coordinate -> getCellAt(coordinate).removeHighLight());
     }
 
+    public void removeHighLight(){
+        for (Cell cell:cells.values()){
+            cell.removeHighLight();
+        }
+    }
+
     public boolean kingDEAD(){
         if (vivas.count(Piece.Type.BLACK_KING)==0){
             System.out.println("\nGANAN LAS BLANCAS");
@@ -80,6 +86,10 @@ public class Board {
             }
         }
         return count;
+    }
+
+    public DeletedPieceManagerListImp getVivas() {
+        return vivas;
     }
 
     public void setWhite(boolean white) {
