@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Pawn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +102,9 @@
       <workItem from="1709053680557" duration="7539000" />
       <workItem from="1709221266020" duration="5491000" />
       <workItem from="1709574257960" duration="5644000" />
-      <workItem from="1709660079715" duration="815000" />
+      <workItem from="1709660079715" duration="961000" />
+      <workItem from="1709661396162" duration="267000" />
+      <workItem from="1709665541168" duration="731000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -141,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709580206387</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1">
+      <option name="closed" value="true" />
+      <created>1709661031157</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709661031157</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

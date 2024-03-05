@@ -79,9 +79,15 @@ public class Board {
         for (Piece.Type type:Piece.Type.values()){
             if (type.getShape()=="♟"){
                 count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(8-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-            }else if (type.getShape()=="♚"||type.getShape()=="♛"){
+            }else if (type.getShape()=="♚"){
                 count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(1-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-            }else {
+            } else if (type.getShape()=="♛") {
+                if (vivas.count(type)>1){
+                    count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(2-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
+                }else {
+                    count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(1-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
+                }
+            } else {
                 count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(2-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
             }
         }

@@ -8,6 +8,25 @@ public class Pawn extends Piece{
     }
 
     //put your task here
+
+    @Override
+    public boolean moveTo(Coordinate coordinate){
+
+        boolean mover = super.moveTo(coordinate);
+
+        if (getCell().getCoordinate().getNumber() == 1 ||getCell().getCoordinate().getNumber() == 8 ){
+            Cell cell = getCell();
+            remove();
+            if (this.getColor() == Color.BLACK){
+                new Queen(cell.getBoard(),coordinate, Queen.Type.BLACK);
+            }else {
+                new Queen(cell.getBoard(),coordinate, Queen.Type.WHITE);
+            }
+        }
+
+        return mover;
+    }
+
     @Override
     public Set<Coordinate> getNextMovements() {
         if (getColor() == Color.BLACK)

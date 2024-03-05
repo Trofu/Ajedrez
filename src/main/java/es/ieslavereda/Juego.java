@@ -33,7 +33,7 @@ public class Juego {
         piezas.add(new Rook(tablero,new Coordinate('A',1), Rook.Type.WHITE));
         piezas.add(new Rook(tablero,new Coordinate('H',1), Rook.Type.WHITE));
         piezas.add(new Pawn(tablero,new Coordinate('A',7), Pawn.Type.BLACK));
-        piezas.add(new Pawn(tablero,new Coordinate('B',7), Pawn.Type.BLACK));
+        //piezas.add(new Pawn(tablero,new Coordinate('B',7), Pawn.Type.BLACK));
         piezas.add(new Pawn(tablero,new Coordinate('C',7), Pawn.Type.BLACK));
         piezas.add(new Pawn(tablero,new Coordinate('D',7), Pawn.Type.BLACK));
         piezas.add(new Pawn(tablero,new Coordinate('E',7), Pawn.Type.BLACK));
@@ -41,7 +41,7 @@ public class Juego {
         piezas.add(new Pawn(tablero,new Coordinate('G',7), Pawn.Type.BLACK));
         piezas.add(new Pawn(tablero,new Coordinate('H',7), Pawn.Type.BLACK));
         piezas.add(new Pawn(tablero,new Coordinate('A',2), Pawn.Type.WHITE));
-        piezas.add(new Pawn(tablero,new Coordinate('B',2), Pawn.Type.WHITE));
+        piezas.add(new Pawn(tablero,new Coordinate('B',7), Pawn.Type.WHITE));
         piezas.add(new Pawn(tablero,new Coordinate('C',2), Pawn.Type.WHITE));
         piezas.add(new Pawn(tablero,new Coordinate('D',2), Pawn.Type.WHITE));
         piezas.add(new Pawn(tablero,new Coordinate('E',2), Pawn.Type.WHITE));
