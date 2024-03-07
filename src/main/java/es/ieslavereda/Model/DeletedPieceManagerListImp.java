@@ -12,7 +12,6 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
 
     public DeletedPieceManagerListImp() {
         pieceList = new ArrayList<>();
-
     }
 
     @Override
@@ -32,4 +31,9 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
     public List<Piece> getPieceList() {
         return pieceList;
     }
+
+    public void remove(Piece piece){
+        pieceList.remove(piece);
+    }
+
 }

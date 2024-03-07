@@ -8,6 +8,7 @@ public class Board {
     private Map<Coordinate,Cell> cells;
 
     private DeletedPieceManagerListImp vivas;
+    private DeletedPieceManagerListImp muertas;
 
     private boolean white;
 
@@ -19,6 +20,7 @@ public class Board {
                 Coordinate thew = new Coordinate(col,row);
                 cells.put(thew,new Cell(this,thew));
             }
+        muertas = new DeletedPieceManagerListImp();
     }
     public boolean contains(Coordinate c) {
         if(c.getLetter()<'A' || c.getLetter()>'H') return false;
@@ -57,12 +59,6 @@ public class Board {
 
     private String allPieces(){
         String count ="";
-        vivas = new DeletedPieceManagerListImp();
-        for(Cell cell:cells.values()){
-            if (!cell.isEmpty()){
-                vivas.addPiece(cell.getPiece());
-            }
-        }
         count+="\nVIVAS\n";
         for (Piece.Type type:Piece.Type.values()){
             count+=colorize(" ",Cell.Color.BLACK.getAttribute())+colorize(type.getShape(),type.getColor().getAttribute(),Cell.Color.BLACK.getAttribute())+colorize(" ",Cell.Color.BLACK.getAttribute());
@@ -77,25 +73,21 @@ public class Board {
         }
         count+="\n";
         for (Piece.Type type:Piece.Type.values()){
-            if (type.getShape()=="♟"){
-                count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(8-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-            }else if (type.getShape()=="♚"){
-                count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(1-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-            } else if (type.getShape()=="♛") {
-                if (vivas.count(type)>1){
-                    count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(2-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-                }else {
-                    count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(1-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-                }
-            } else {
-                count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(2-vivas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-            }
+                count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(muertas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
         }
         return count;
     }
 
     public DeletedPieceManagerListImp getVivas() {
         return vivas;
+    }
+
+    public DeletedPieceManagerListImp getMuertas() {
+        return muertas;
+    }
+
+    public void setVivas(DeletedPieceManagerListImp vivas) {
+        this.vivas = vivas;
     }
 
     public void setWhite(boolean white) {

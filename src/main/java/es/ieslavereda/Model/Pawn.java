@@ -16,14 +16,12 @@ public class Pawn extends Piece{
 
         if (getCell().getCoordinate().getNumber() == 1 ||getCell().getCoordinate().getNumber() == 8 ){
             Cell cell = getCell();
+            Board board = cell.getBoard();
+            board.getVivas().remove(board.getCellAt(coordinate).getPiece());
+            board.getMuertas().addPiece(board.getCellAt(coordinate).getPiece());
             remove();
-            if (this.getColor() == Color.BLACK){
-                new Queen(cell.getBoard(),coordinate, Queen.Type.BLACK);
-            }else {
-                new Queen(cell.getBoard(),coordinate, Queen.Type.WHITE);
-            }
+            board.getVivas().addPiece(new Queen(board,coordinate, this.getColor() == Color.BLACK ? Queen.Type.BLACK : Queen.Type.WHITE));
         }
-
         return mover;
     }
 

@@ -49,8 +49,11 @@ public abstract class Piece{
         if(!canMoveTo(coordinate))
             return false;
         Board board = cell.getBoard();
-        if(!board.getCellAt(coordinate).isEmpty())
+        if(!board.getCellAt(coordinate).isEmpty()) {
+            board.getVivas().remove(board.getCellAt(coordinate).getPiece());
+            board.getMuertas().addPiece(board.getCellAt(coordinate).getPiece());
             board.getCellAt(coordinate).getPiece().remove();
+        }
         remove();
         setCell(board.getCellAt(coordinate));
         place();
