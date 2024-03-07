@@ -49,6 +49,10 @@ public class Cell {
             this.color = (piece!=null)? Color.HIGHLIGHT_KILL_BLACK : Color.HIGHLIGHT_BLACK;
     }
 
+    public void highlightJaque(){
+        this.color = Color.ORANGE;
+    }
+
     @Override
     public String toString(){
         if(piece==null){
@@ -71,6 +75,7 @@ public class Cell {
     }
 
     public enum Color {
+        ORANGE(Attribute.BACK_COLOR(198, 137, 0)),
         WHITE(Attribute.BACK_COLOR(180,180,180)),
         BLACK(Attribute.BACK_COLOR(100,100,100)),
         HIGHLIGHT_KILL_WHITE(Attribute.BACK_COLOR(180,0,0)),

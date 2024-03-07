@@ -98,10 +98,12 @@ public class Juego {
 
                     }
                 }
-                for (Coordinate coordinate:tablero.getCellAt(c2).getPiece().getNextMovements()){
-                    if (coordinate.equals(king.getCell().getCoordinate())){
-                        System.out.println("Rey negro estas en JAQUE");
-                        tablero.getCellAt(coordinate).highlight();
+                if (!tablero.kingDEAD()){
+                    for (Coordinate coordinate:tablero.getCellAt(c2).getPiece().getNextMovements()){
+                        if (king.getCell() != null && coordinate.equals(king.getCell().getCoordinate())){
+                            System.out.println("Rey negro estas en JAQUE");
+                            tablero.getCellAt(coordinate).highlightJaque();
+                        }
                     }
                 }
                 tablero.setWhite(false);
@@ -113,10 +115,12 @@ public class Juego {
 
                     }
                 }
-                for (Coordinate coordinate:tablero.getCellAt(c2).getPiece().getNextMovements()){
-                    if (coordinate.equals(king.getCell().getCoordinate())){
-                        System.out.println("Rey Blanco estas en JAQUE");
-                        tablero.getCellAt(coordinate).highlight();
+                if (!tablero.kingDEAD()){
+                    for (Coordinate coordinate:tablero.getCellAt(c2).getPiece().getNextMovements()){
+                        if (king.getCell() != null && coordinate.equals(king.getCell().getCoordinate())){
+                            System.out.println("Rey Blanco estas en JAQUE");
+                            tablero.getCellAt(coordinate).highlightJaque();
+                        }
                     }
                 }
                 tablero.setWhite(true);
