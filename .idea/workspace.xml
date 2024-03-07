@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="1">
+    <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="pieza se transforma en reina&#10;// arreglar el count">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_16_33_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_02_2024_16_33__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/DeletedPieceManagerListImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/DeletedPieceManagerListImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/IDeletedPieceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/IDeletedPieceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/View/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Tool.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +77,11 @@
 }</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="es.ieslavereda.Main" />
+      <option name="MAIN_CLASS_NAME" value="es.ieslavereda.View.Main" />
       <module name="Ajedrez" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="es.ieslavereda.*" />
+          <option name="PATTERN" value="es.ieslavereda.View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -104,7 +119,8 @@
       <workItem from="1709574257960" duration="5644000" />
       <workItem from="1709660079715" duration="961000" />
       <workItem from="1709661396162" duration="267000" />
-      <workItem from="1709665541168" duration="731000" />
+      <workItem from="1709665541168" duration="933000" />
+      <workItem from="1709834254119" duration="699000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -154,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709661031157</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="pieza se transforma en reina&#10;// arreglar el count">
+      <option name="closed" value="true" />
+      <created>1709666467281</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709666467281</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +187,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="pieza se transforma en reina&#10;// arreglar el count" />
+    <option name="LAST_COMMIT_MESSAGE" value="pieza se transforma en reina&#10;// arreglar el count" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

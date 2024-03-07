@@ -1,4 +1,4 @@
-package es.ieslavereda;
+package es.ieslavereda.Model;
 
 import com.diogonunes.jcolor.Attribute;
 
@@ -80,7 +80,7 @@ public abstract class Piece{
         }
     }
 
-    protected abstract Set<Coordinate> getNextMovements();
+    public abstract Set<Coordinate> getNextMovements();
 
     public enum Color {
 

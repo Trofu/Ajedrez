@@ -1,4 +1,4 @@
-package es.ieslavereda;
+package es.ieslavereda.Model;
 
 public class Coordinate {
     private char letter;

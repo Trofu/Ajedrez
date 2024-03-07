@@ -1,6 +1,5 @@
-package es.ieslavereda;
+package es.ieslavereda.Model;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 

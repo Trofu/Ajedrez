@@ -1,4 +1,4 @@
-package es.ieslavereda;
+package es.ieslavereda.Model;
 
 import java.util.*;
 
@@ -110,26 +110,26 @@ public class Board {
     public String toString() {
         String aux ="";
         if (white){
-            aux="\t\t    A  B  C  D  E  F  G  H\n";
+            aux="       A  B  C  D  E  F  G  H\n";
             for (int row=8;row>= 1;row--){
-                aux+="\t\t " + row +" ";
+                aux+="    " + row +" ";
                 for(char col='A';col<='H';col++){
                     aux+=cells.get(new Coordinate(col,row));
                 }
                 aux+=" " + row + "\n";
             }
-            aux+="\t\t    A  B  C  D  E  F  G  H\n\n";
+            aux+="       A  B  C  D  E  F  G  H\n";
 
         }else {
-            aux="\t\t    H  G  F  E  D  C  B  A\n";
+            aux="       H  G  F  E  D  C  B  A\n";
             for (int row=1;row<= 8;row++){
-                aux+="\t\t " + row +" ";
+                aux+="    " + row +" ";
                 for(char col='H';col>='A';col--){
                     aux+=cells.get(new Coordinate(col,row));
                 }
                 aux+=" " + row + "\n";
             }
-            aux+="\t\t    H  G  F  E  D  C  B  A\n\n";
+            aux+="       H  G  F  E  D  C  B  A\n";
         }
         aux+= allPieces();
         return aux;

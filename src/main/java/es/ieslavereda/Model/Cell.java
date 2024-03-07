@@ -1,4 +1,4 @@
-package es.ieslavereda;
+package es.ieslavereda.Model;
 
 import com.diogonunes.jcolor.Attribute;
 

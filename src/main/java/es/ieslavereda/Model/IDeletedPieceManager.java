@@ -1,4 +1,4 @@
-package es.ieslavereda;
+package es.ieslavereda.Model;
 
 public interface IDeletedPieceManager {
     void addPiece(Piece piece);
