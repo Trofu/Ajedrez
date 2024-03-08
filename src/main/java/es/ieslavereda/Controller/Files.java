@@ -19,30 +19,41 @@ public class Files {
         }
     }
 
-    public static Juego loadGame() throws IOException, ClassNotFoundException {
+    public static Juego loadGame(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Do you wanna load a game? (YES/NO)");
+        System.out.println("Do you want to load a game? (YES/NO)");
         String maybe = sc.nextLine();
-        if (maybe.equalsIgnoreCase("YES")){
-            System.out.println("What is the name of the game? ");
-            String game = sc.nextLine();
-            return load(game);
-        }else {
-            return null;
+        try{
+            if (maybe.equalsIgnoreCase("YES")){
+                System.out.println("What is the name of the game? ");
+                String game = sc.nextLine();
+                return load(game);
+            }
+        } catch (ClassNotFoundException e){
+            System.out.println("Cant load game, Start a new game");
+        }catch (IOException e){
+            System.out.println("This game dont exist, Start a new game");
         }
+        return null;
     }
 
-    public static boolean saveGame(Juego juego) throws IOException  {
+    public static boolean saveGame(Juego juego) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Do you wanna save a game? (YES/NO)");
+        System.out.println("Do you want save a game? (YES/NO)");
         String maybe = sc.nextLine();
-        if (maybe.equalsIgnoreCase("YES")){
-            System.out.println("What is the name of the game? ");
-            String game = sc.nextLine();
-            save(game,juego);
-            return true;
+        try {
+            if (maybe.equalsIgnoreCase("YES")){
+                System.out.println("What is the name of the game? ");
+                String game = sc.nextLine();
+                save(game,juego);
+                return true;
+            }
+            return false;
+        }catch (IOException e){
+            System.out.println("You can't save this game");
         }
         return false;
+
     }
 
 

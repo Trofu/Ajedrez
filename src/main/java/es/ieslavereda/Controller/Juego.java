@@ -4,9 +4,6 @@ import es.ieslavereda.Model.*;
 import java.io.Serializable;
 import java.util.*;
 import static com.diogonunes.jcolor.Ansi.colorize;
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.*;
 import java.util.stream.Collectors;
 
 public class Juego implements Serializable {
@@ -28,7 +25,7 @@ public class Juego implements Serializable {
 
     private void addPieces (){
         piezas.addPiece(new King(tablero,new Coordinate('E',1), King.Type.WHITE));
-        piezas.addPiece(new King(tablero,new Coordinate('E',8), King.Type.BLACK));
+        piezas.addPiece(new King(tablero,new Coordinate('E',3), King.Type.BLACK));
         piezas.addPiece(new Queen(tablero,new Coordinate('D',1), Queen.Type.WHITE));
         piezas.addPiece(new Queen(tablero,new Coordinate('D',8), Queen.Type.BLACK));
         piezas.addPiece(new Bishop(tablero,new Coordinate('C',8), Bishop.Type.BLACK));
@@ -65,11 +62,12 @@ public class Juego implements Serializable {
         return tablero;
     }
 
-    public void playGame() throws IOException {
+    public void playGame(){
         boolean save ;
-        int i = 0;
+        int i = movements.size();
         do {
             List<Coordinate> movement = new ArrayList<>();
+            System.out.println("\n-------------------------------");
             System.out.println("\n"+colorize(" ♚ PLAYER "+(tablero.isWhite() ? "WHITE" : "BLACK")+" YOUR TURN ♚ ",(tablero.isWhite() ? Piece.Color.WHITE.getAttribute():Piece.Color.BLACK.getAttribute()),(!tablero.isWhite() ? Cell.Color.WHITE.getAttribute(): Cell.Color.BLACK.getAttribute()))+"\n");
             if (save = Files.saveGame(this)){
                 break;
@@ -88,7 +86,7 @@ public class Juego implements Serializable {
                     System.out.println("Which piece do you want to move?");
                 }
                 c1 = pedirCordenada();
-                maybe = !tablero.getCellAt(c1).isEmpty() && tablero.getCellAt(c1).getPiece().getNextMovements().size()==0;
+                maybe = !tablero.getCellAt(c1).isEmpty() && tablero.getCellAt(c1).getPiece().getNextMovements().isEmpty();
             }while (yes = (tablero.getCellAt(c1).isEmpty()||(tablero.getCellAt(c1).getPiece().getColor() == (tablero.isWhite()?Piece.Color.BLACK:Piece.Color.WHITE))
                     ||tablero.getCellAt(c1).getPiece().getNextMovements().size()==0));
             tablero.highLight(tablero.getCellAt(c1).getPiece().getNextMovements());
@@ -108,11 +106,6 @@ public class Juego implements Serializable {
                     if (king.get(0).getCell() != null && coordinate.equals(king.get(0).getCell().getCoordinate())){
                         System.out.println((tablero.isWhite() ? "white" : "black")+" king are in check");
                         tablero.getCellAt(coordinate).highlightJaque();
-                        if(comprobarJaqueMate(king.get(0), coordinate)){
-                            System.out.println("MATE");
-                        }
-                        King k1 = (King) king.get(0);
-                        k1.setCheck(true);
                     }
                 }
             }
@@ -122,72 +115,26 @@ public class Juego implements Serializable {
             movement.add(c2);
             movements.put(i,movement);
         }while (!tablero.kingDEAD());
+
+
         if (save){
             System.out.println("Game Save");
             movements.toString();
         }else {
             System.out.println("\n"+colorize(" WIN "+(tablero.isWhite() ? "WHITE" : "BLACK")+" PLAYER ",(tablero.isWhite() ? Piece.Color.WHITE.getAttribute():Piece.Color.BLACK.getAttribute()),(!tablero.isWhite() ? Cell.Color.WHITE.getAttribute(): Cell.Color.BLACK.getAttribute()))+"\n");
-        }
-        for (Map.Entry<Integer, List<Coordinate>> entry : movements.entrySet()) {
-            int numero = entry.getKey();
-            List<Coordinate> coordenadas = entry.getValue();
-            System.out.print("Movimiento: " + numero+":  ");
-            for (int j = 0; j < 2; j++) {
-                if (j == 0) System.out.print(coordenadas.get(j)+" --> ");
-                else System.out.println(coordenadas.get(j));
-            }
-        }
-    }
-
-    public boolean comprobarJaqueMate(Piece king, Coordinate coordinate){
-        List<Piece>  blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
-        List<Piece> negras = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
-        for (Coordinate coordinateKing : king.getNextMovements()) {
-            Piece piezaComida = king.moveToHipotetico(coordinateKing);
-            blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
-            negras =  tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
-            if(isInCheck(blancas,king)){
-                king.moveToHipoteticoDeshacer(coordinate, piezaComida);
-                blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
-                negras =  tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
-            } else {
-                king.moveToHipoteticoDeshacer(coordinate, piezaComida);
-                return false;
-            }
-
-        }
-        for (Piece pieceNegra : negras){
-            for (Coordinate coordinatePiece : pieceNegra.getNextMovements()){
-                Coordinate coordinateOriginal = pieceNegra.getCell().getCoordinate();
-                Piece piezaComida = pieceNegra.moveToHipotetico(coordinatePiece);
-                blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
-                negras =  tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
-                if(isInCheck(blancas,king)){
-                    pieceNegra.moveToHipoteticoDeshacer(coordinateOriginal, piezaComida);
-                    blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
-                    negras =  tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
-                } else {
-                    pieceNegra.moveToHipoteticoDeshacer(coordinateOriginal, piezaComida);
-                    return false;
+            System.out.println("MOVEMENTS ");
+            for (Map.Entry<Integer, List<Coordinate>> entry : movements.entrySet()) {
+                int numero = entry.getKey();
+                List<Coordinate> coordenadas = entry.getValue();
+                System.out.print("Move " + numero+":  ");
+                for (int j = 0; j < 2; j++) {
+                    if (j == 0) System.out.print("["+coordenadas.get(j)+" --> ");
+                    else System.out.println(coordenadas.get(j)+"]");
                 }
             }
         }
-        return true;
+
     }
-
-    public boolean isInCheck(List<Piece> pieces,Piece king){
-        for(Piece piece: pieces){
-            for (Coordinate coordinateBlanca : piece.getNextMovements()) {
-                if(coordinateBlanca.equals(king.getCell().getCoordinate())){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-
-
 
     public Coordinate pedirCordenada(){
         Scanner sc = new Scanner(System.in);
@@ -196,12 +143,12 @@ public class Juego implements Serializable {
         System.out.println("Enter a coordinate: ");
         do {
             if (yes){
-                System.err.println("Coordenada fuera de los limites");
+                System.err.println("Coordinate out of bounds");
             }
             String cord;
             do {
                 if (yes2){
-                    System.err.println("Coordenada Incorrecta prueba (Letra(A-H)/Numero(1-8))");
+                    System.err.println("Coordinate incorrect try: (Letter(A-H)/Number(1-8))");
                 }
                 cord = sc.nextLine();
             }while ( yes2 = !(cord.length()==2));

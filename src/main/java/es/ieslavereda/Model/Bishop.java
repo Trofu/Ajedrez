@@ -9,7 +9,6 @@ public class Bishop extends Piece implements Serializable {
         super(type.getType(), board.getCellAt(position));
     }
 
-    //put your task here
     public Set<Coordinate> getNextMovements(){
         return getNextMovementsAsBishop(this);
     }

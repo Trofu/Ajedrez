@@ -36,7 +36,8 @@ public class Board implements Serializable {
     public void highLight(Set<Coordinate> coordinates){
         removeHighLight();
         coordinates.stream().forEach(coordinate -> getCellAt(coordinate).highlight());
-        System.out.println(coordinates);
+        System.out.println("\n-------------------------------\n");
+        System.out.println("POSIBLE MOVEMENTS: "+ coordinates+"\n");
         System.out.println(this);
         coordinates.stream().forEach(coordinate -> getCellAt(coordinate).removeHighLight());
     }
@@ -59,13 +60,13 @@ public class Board implements Serializable {
 
     private String allPieces(){
         String count ="";
-        count+="\nVIVAS\n";
+        count+="\nALIVE\n";
         for (Piece.Type type:Piece.Type.values()){
             count+=colorize(" ",Cell.Color.BLACK.getAttribute())+colorize(type.getShape(),type.getColor().getAttribute(),Cell.Color.BLACK.getAttribute())+colorize(" ",Cell.Color.BLACK.getAttribute());
         }
         count+="\n";
         count+=vivas.toString();
-        count+="\nMUERTAS\n";
+        count+="\nDEAD\n";
         for (Piece.Type type:Piece.Type.values()){
             count+=colorize(" ",Cell.Color.BLACK.getAttribute())+colorize(type.getShape(),type.getColor().getAttribute(),Cell.Color.BLACK.getAttribute())+colorize(" ",Cell.Color.BLACK.getAttribute());
         }

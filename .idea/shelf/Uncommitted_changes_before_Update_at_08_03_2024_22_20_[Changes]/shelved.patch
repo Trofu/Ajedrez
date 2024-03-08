@@ -1,0 +1,134 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a1f21a15-1af3-422a-8cfb-2ca179c01e27\" name=\"Changes\" comment=\"jaque arreglar\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2cgeInbOOdxnRLxh0IDmDdiHVB1\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Trofu/IdeaProjects/Ajedrez&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Console Font&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"es.ieslavereda.Main\" />\r\n      <module name=\"Ajedrez\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"es.ieslavereda.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-11.0.21-corretto-11.0.21-f644763e9732-a9dfd5e7\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a1f21a15-1af3-422a-8cfb-2ca179c01e27\" name=\"Changes\" comment=\"\" />\r\n      <created>1708537571916</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1708537571916</updated>\r\n      <workItem from=\"1708537572917\" duration=\"1000\" />\r\n      <workItem from=\"1708616257558\" duration=\"4521000\" />\r\n      <workItem from=\"1709052822577\" duration=\"286000\" />\r\n      <workItem from=\"1709053294626\" duration=\"58000\" />\r\n      <workItem from=\"1709053680557\" duration=\"7539000\" />\r\n      <workItem from=\"1709221266020\" duration=\"5491000\" />\r\n      <workItem from=\"1709574257960\" duration=\"5644000\" />\r\n      <workItem from=\"1709660079715\" duration=\"961000\" />\r\n      <workItem from=\"1709661396162\" duration=\"267000\" />\r\n      <workItem from=\"1709665541168\" duration=\"731000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708972286379</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708972286379</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708975254839</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708975254839</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709144230706</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709144230706</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709227567058</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709227567058</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709580206387</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709580206387</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709661031157</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709661031157</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"problemas solucionados alugnos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709852870300</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709852870300</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"impelementar lista de movimientos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709858642130</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709858642130</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"jaque arreglar\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709862701731</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709862701731</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"10\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"1\" />\r\n    <MESSAGE value=\"problemas solucionados alugnos\" />\r\n    <MESSAGE value=\"impelementar lista de movimientos\" />\r\n    <MESSAGE value=\"jaque arreglar\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"jaque arreglar\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.NullPointerException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 82d03a19da68b4646edd9a1e63f85f9a94738205)
++++ b/.idea/workspace.xml	(date 1709916615166)
+@@ -4,9 +4,11 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="jaque arreglar">
++    <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="1">
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_03_2024_13_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_03_2024_13_29__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_03_2024_22_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_03_2024_22_49__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -60,11 +62,11 @@
+ }</component>
+   <component name="RunManager">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="es.ieslavereda.Main" />
++      <option name="MAIN_CLASS_NAME" value="es.ieslavereda.View.Main" />
+       <module name="Ajedrez" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="es.ieslavereda.*" />
++          <option name="PATTERN" value="es.ieslavereda.View.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -102,7 +104,9 @@
+       <workItem from="1709574257960" duration="5644000" />
+       <workItem from="1709660079715" duration="961000" />
+       <workItem from="1709661396162" duration="267000" />
+-      <workItem from="1709665541168" duration="731000" />
++      <workItem from="1709665541168" duration="933000" />
++      <workItem from="1709834254119" duration="2202000" />
++      <workItem from="1709916278425" duration="337000" />
+     </task>
+     <task id="LOCAL-00001" summary="1">
+       <option name="closed" value="true" />
+@@ -152,31 +156,23 @@
+       <option name="project" value="LOCAL" />
+       <updated>1709661031157</updated>
+     </task>
+-    <task id="LOCAL-00007" summary="problemas solucionados alugnos">
++    <task id="LOCAL-00007" summary="pieza se transforma en reina&#10;// arreglar el count">
+       <option name="closed" value="true" />
+-      <created>1709852870300</created>
++      <created>1709666467281</created>
+       <option name="number" value="00007" />
+       <option name="presentableId" value="LOCAL-00007" />
+       <option name="project" value="LOCAL" />
+-      <updated>1709852870300</updated>
++      <updated>1709666467281</updated>
+     </task>
+-    <task id="LOCAL-00008" summary="impelementar lista de movimientos">
++    <task id="LOCAL-00008" summary="1">
+       <option name="closed" value="true" />
+-      <created>1709858642130</created>
++      <created>1709835054493</created>
+       <option name="number" value="00008" />
+       <option name="presentableId" value="LOCAL-00008" />
+       <option name="project" value="LOCAL" />
+-      <updated>1709858642130</updated>
++      <updated>1709835054493</updated>
+     </task>
+-    <task id="LOCAL-00009" summary="jaque arreglar">
+-      <option name="closed" value="true" />
+-      <created>1709862701731</created>
+-      <option name="number" value="00009" />
+-      <option name="presentableId" value="LOCAL-00009" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1709862701731</updated>
+-    </task>
+-    <option name="localTasksCounter" value="10" />
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -184,11 +180,9 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
++    <MESSAGE value="pieza se transforma en reina&#10;// arreglar el count" />
+     <MESSAGE value="1" />
+-    <MESSAGE value="problemas solucionados alugnos" />
+-    <MESSAGE value="impelementar lista de movimientos" />
+-    <MESSAGE value="jaque arreglar" />
+-    <option name="LAST_COMMIT_MESSAGE" value="jaque arreglar" />
++    <option name="LAST_COMMIT_MESSAGE" value="1" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+@@ -197,6 +191,11 @@
+           <properties class="java.lang.NullPointerException" package="java.lang" />
+           <option name="timeStamp" value="2" />
+         </breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java</url>
++          <line>127</line>
++          <option name="timeStamp" value="4" />
++        </line-breakpoint>
+       </breakpoints>
+     </breakpoint-manager>
+   </component>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"11 Oracle\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 82d03a19da68b4646edd9a1e63f85f9a94738205)
++++ b/.idea/misc.xml	(date 1709913316868)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11 Oracle" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11 ORACLE" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

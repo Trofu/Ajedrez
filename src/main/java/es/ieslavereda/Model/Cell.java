@@ -77,7 +77,7 @@ public class Cell implements Serializable {
     }
 
     public enum Color {
-        ORANGE(Attribute.BACK_COLOR(198, 137, 0)),
+        ORANGE(Attribute.BACK_COLOR(198,137,0)),
 
         WHITE(Attribute.BACK_COLOR(180,180,180)),
 
