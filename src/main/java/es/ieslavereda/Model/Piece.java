@@ -29,7 +29,6 @@ public abstract class Piece implements Serializable {
     public void remove(){
         if(cell!=null){
             cell.setPiece(null);
-            cell = null;
         }
     }
 
@@ -44,6 +43,36 @@ public abstract class Piece implements Serializable {
         if(board.getCellAt(c).getPiece().getColor()!=getColor()) return true;
 
         return false;
+    }
+
+    public Piece moveToHipotetico(Coordinate coordinate){
+        Piece piezaComida = null;
+        if(!canMoveTo(coordinate))
+            return null;
+        Board board = cell.getBoard();
+        if(!board.getCellAt(coordinate).isEmpty()) {
+            piezaComida = board.getCellAt(coordinate).getPiece();
+            board.getVivas().remove(board.getCellAt(coordinate).getPiece());
+            board.getMuertas().addPiece(board.getCellAt(coordinate).getPiece());
+            board.getCellAt(coordinate).getPiece().remove();
+        }
+        remove();
+        setCell(board.getCellAt(coordinate));
+        place();
+        return piezaComida;
+    }
+
+    public void moveToHipoteticoDeshacer(Coordinate coordinate, Piece piece){
+        Board board = cell.getBoard();
+        if(piece != null){
+            board.getVivas().addPiece(piece);
+            board.getMuertas().remove(piece);
+            cell.setPiece(piece);
+        }else {
+            remove();
+        }
+        setCell(board.getCellAt(coordinate));
+        place();
     }
 
     public boolean moveTo(Coordinate coordinate){

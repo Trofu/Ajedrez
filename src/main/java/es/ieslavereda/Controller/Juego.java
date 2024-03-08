@@ -25,10 +25,10 @@ public class Juego implements Serializable {
 
 
     private void addPieces (){
-        piezas.addPiece(new King(tablero,new Coordinate('D',1), King.Type.WHITE));
-        piezas.addPiece(new King(tablero,new Coordinate('D',8), King.Type.BLACK));
-        piezas.addPiece(new Queen(tablero,new Coordinate('E',1), Queen.Type.WHITE));
-        piezas.addPiece(new Queen(tablero,new Coordinate('E',8), Queen.Type.BLACK));
+        piezas.addPiece(new King(tablero,new Coordinate('E',1), King.Type.WHITE));
+        piezas.addPiece(new King(tablero,new Coordinate('E',8), King.Type.BLACK));
+        piezas.addPiece(new Queen(tablero,new Coordinate('D',1), Queen.Type.WHITE));
+        piezas.addPiece(new Queen(tablero,new Coordinate('D',8), Queen.Type.BLACK));
         piezas.addPiece(new Bishop(tablero,new Coordinate('C',8), Bishop.Type.BLACK));
         piezas.addPiece(new Bishop(tablero,new Coordinate('F',8), Bishop.Type.BLACK));
         piezas.addPiece(new Bishop(tablero,new Coordinate('C',1), Bishop.Type.WHITE));
@@ -65,7 +65,9 @@ public class Juego implements Serializable {
 
     public void playGame() throws IOException {
         boolean save ;
+        int i = 0;
         do {
+            List<Coordinate> movement = new ArrayList<>();
             System.out.println("PLAYER "+(tablero.isWhite() ? "WHITE" : "BLACK")+" YOUR TURN");
             if (save = Files.saveGame(this)){
                 break;
@@ -101,21 +103,87 @@ public class Juego implements Serializable {
             if (!tablero.kingDEAD()){
                 List<Piece> king = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getType()==(tablero.isWhite()?Piece.Type.BLACK_KING:Piece.Type.WHITE_KING)).collect(Collectors.toList());
                 for (Coordinate coordinate:tablero.getCellAt(c2).getPiece().getNextMovements()){
-                    if (king.get(1).getCell() != null && coordinate.equals(king.get(1).getCell().getCoordinate())){
+                    if (king.get(0).getCell() != null && coordinate.equals(king.get(0).getCell().getCoordinate())){
                         System.out.println((tablero.isWhite() ? "white" : "black")+" king are in check");
                         tablero.getCellAt(coordinate).highlightJaque();
-                        King k1 = (King) king;
+                        if(comprobarJaqueMate(king.get(0), coordinate)){
+                            System.out.println("MATE");
+                        }
+                        King k1 = (King) king.get(0);
                         k1.setCheck(true);
                     }
                 }
             }
             tablero.setWhite(!tablero.isWhite());
+            i++;
+            movement.add(c1);
+            movement.add(c2);
+            movements.put(i,movement);
         }while (!tablero.kingDEAD());
         if (save){
             System.out.println("Game Save");
+            movements.toString();
         }else {
             System.out.println("WIN "+(!tablero.isWhite() ? "WHITE" : "BLACK")+" PLAYER");
+
+        for (Map.Entry<Integer, List<Coordinate>> entry : movements.entrySet()) {
+            int numero = entry.getKey();
+            List<Coordinate> coordenadas = entry.getValue();
+
+            System.out.print("Movimiento: " + numero+":  ");
+            for (int j = 0; j < 2; j++) {
+                if (j == 0) System.out.print(coordenadas.get(j)+" --> ");
+                else System.out.println(coordenadas.get(j));
+            }
         }
+        }
+    }
+
+    public boolean comprobarJaqueMate(Piece king, Coordinate coordinate){
+        List<Piece>  blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
+        List<Piece> negras = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
+        for (Coordinate coordinateKing : king.getNextMovements()) {
+            Piece piezaComida = king.moveToHipotetico(coordinateKing);
+            blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
+            negras =  tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
+            if(isInCheck(blancas,king)){
+                king.moveToHipoteticoDeshacer(coordinate, piezaComida);
+                blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
+                negras =  tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
+            } else {
+                king.moveToHipoteticoDeshacer(coordinate, piezaComida);
+                return false;
+            }
+
+        }
+        for (Piece pieceNegra : negras){
+            for (Coordinate coordinatePiece : pieceNegra.getNextMovements()){
+                Coordinate coordinateOriginal = pieceNegra.getCell().getCoordinate();
+                Piece piezaComida = pieceNegra.moveToHipotetico(coordinatePiece);
+                blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
+                negras =  tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
+                if(isInCheck(blancas,king)){
+                    pieceNegra.moveToHipoteticoDeshacer(coordinateOriginal, piezaComida);
+                    blancas = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.WHITE).collect(Collectors.toList());
+                    negras =  tablero.getVivas().getPieceList().stream().filter(piece -> piece.getColor() == Piece.Color.BLACK).collect(Collectors.toList());
+                } else {
+                    pieceNegra.moveToHipoteticoDeshacer(coordinateOriginal, piezaComida);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean isInCheck(List<Piece> pieces,Piece king){
+        for(Piece piece: pieces){
+            for (Coordinate coordinateBlanca : piece.getNextMovements()) {
+                if(coordinateBlanca.equals(king.getCell().getCoordinate())){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 
