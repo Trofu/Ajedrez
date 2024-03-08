@@ -124,18 +124,16 @@ public class Juego implements Serializable {
             System.out.println("Game Save");
             movements.toString();
         }else {
-            System.out.println("WIN "+(!tablero.isWhite() ? "WHITE" : "BLACK")+" PLAYER");
-
+            System.out.println("WIN " + (!tablero.isWhite() ? "WHITE" : "BLACK") + " PLAYER");
+        }
         for (Map.Entry<Integer, List<Coordinate>> entry : movements.entrySet()) {
             int numero = entry.getKey();
             List<Coordinate> coordenadas = entry.getValue();
-
             System.out.print("Movimiento: " + numero+":  ");
             for (int j = 0; j < 2; j++) {
                 if (j == 0) System.out.print(coordenadas.get(j)+" --> ");
                 else System.out.println(coordenadas.get(j));
             }
-        }
         }
     }
 

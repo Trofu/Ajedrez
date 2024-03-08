@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="impelementar lista de movimientos">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/games/game1.dat" afterDir="false" />
+    <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="jaque arreglar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Piece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709858642130</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="jaque arreglar">
+      <option name="closed" value="true" />
+      <created>1709862701731</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709862701731</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +187,8 @@
     <MESSAGE value="1" />
     <MESSAGE value="problemas solucionados alugnos" />
     <MESSAGE value="impelementar lista de movimientos" />
-    <option name="LAST_COMMIT_MESSAGE" value="impelementar lista de movimientos" />
+    <MESSAGE value="jaque arreglar" />
+    <option name="LAST_COMMIT_MESSAGE" value="jaque arreglar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
