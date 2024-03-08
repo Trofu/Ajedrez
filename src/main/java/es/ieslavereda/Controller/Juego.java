@@ -1,7 +1,9 @@
 package es.ieslavereda.Controller;
 
 import es.ieslavereda.Model.*;
-
+import java.io.Serializable;
+import java.util.*;
+import static com.diogonunes.jcolor.Ansi.colorize;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
@@ -68,7 +70,7 @@ public class Juego implements Serializable {
         int i = 0;
         do {
             List<Coordinate> movement = new ArrayList<>();
-            System.out.println("PLAYER "+(tablero.isWhite() ? "WHITE" : "BLACK")+" YOUR TURN");
+            System.out.println("\n"+colorize(" ♚ PLAYER "+(tablero.isWhite() ? "WHITE" : "BLACK")+" YOUR TURN ♚ ",(tablero.isWhite() ? Piece.Color.WHITE.getAttribute():Piece.Color.BLACK.getAttribute()),(!tablero.isWhite() ? Cell.Color.WHITE.getAttribute(): Cell.Color.BLACK.getAttribute()))+"\n");
             if (save = Files.saveGame(this)){
                 break;
             }
@@ -124,7 +126,7 @@ public class Juego implements Serializable {
             System.out.println("Game Save");
             movements.toString();
         }else {
-            System.out.println("WIN " + (!tablero.isWhite() ? "WHITE" : "BLACK") + " PLAYER");
+            System.out.println("\n"+colorize(" WIN "+(tablero.isWhite() ? "WHITE" : "BLACK")+" PLAYER ",(tablero.isWhite() ? Piece.Color.WHITE.getAttribute():Piece.Color.BLACK.getAttribute()),(!tablero.isWhite() ? Cell.Color.WHITE.getAttribute(): Cell.Color.BLACK.getAttribute()))+"\n");
         }
         for (Map.Entry<Integer, List<Coordinate>> entry : movements.entrySet()) {
             int numero = entry.getKey();
