@@ -1,8 +1,9 @@
 package es.ieslavereda.Model;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Pawn extends Piece{
+public class Pawn extends Piece implements Serializable {
     public Pawn(Board board, Coordinate position, Type type) {
         super(type.getType(), board.getCellAt(position));
     }

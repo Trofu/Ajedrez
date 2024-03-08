@@ -1,11 +1,12 @@
 package es.ieslavereda.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 
-public class DeletedPieceManagerListImp implements IDeletedPieceManager {
+public class DeletedPieceManagerListImp implements IDeletedPieceManager, Serializable {
 
     List<Piece> pieceList;
 
@@ -36,4 +37,12 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
         pieceList.remove(piece);
     }
 
+    @Override
+    public String toString() {
+        String count ="";
+        for (Piece.Type type:Piece.Type.values()){
+            count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+count(type),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
+        }
+        return count;
+    }
 }

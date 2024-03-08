@@ -2,11 +2,12 @@ package es.ieslavereda.Model;
 
 import com.diogonunes.jcolor.Attribute;
 
+import java.io.Serializable;
 import java.util.*;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 
-public abstract class Piece{
+public abstract class Piece implements Serializable {
 
     private Type type;
     private Cell cell;

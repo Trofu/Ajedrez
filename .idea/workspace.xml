@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="1">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a1f21a15-1af3-422a-8cfb-2ca179c01e27" name="Changes" comment="problemas solucionados alugnos">
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Files.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Coordinate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/DeletedPieceManagerListImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/DeletedPieceManagerListImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Knight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ieslavereda/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ieslavereda/View/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709661031157</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="problemas solucionados alugnos">
+      <option name="closed" value="true" />
+      <created>1709852870300</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709852870300</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +182,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="problemas solucionados alugnos" />
+    <option name="LAST_COMMIT_MESSAGE" value="problemas solucionados alugnos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -175,6 +192,20 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/es/ieslavereda/Model/Board.java</url>
+          <line>49</line>
+          <properties class="es.ieslavereda.Model.Board" method="kingDEAD">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/es/ieslavereda/Controller/Juego.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -1,9 +1,10 @@
 package es.ieslavereda.Model;
 
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class Knight extends Piece {
+public class Knight extends Piece implements Serializable {
 
     public Knight(Board board, Coordinate position, Knight.Type type) {
         super(type.getType(), board.getCellAt(position));

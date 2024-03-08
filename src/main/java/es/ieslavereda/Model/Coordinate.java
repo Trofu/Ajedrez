@@ -1,6 +1,8 @@
 package es.ieslavereda.Model;
 
-public class Coordinate {
+import java.io.Serializable;
+
+public class Coordinate implements Serializable {
     private char letter;
     private int number;
 

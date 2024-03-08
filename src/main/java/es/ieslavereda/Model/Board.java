@@ -1,10 +1,11 @@
 package es.ieslavereda.Model;
 
+import java.io.Serializable;
 import java.util.*;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 
-public class Board {
+public class Board implements Serializable {
     private Map<Coordinate,Cell> cells;
 
     private DeletedPieceManagerListImp vivas;
@@ -33,6 +34,7 @@ public class Board {
         return cells.get(c);
     }
     public void highLight(Set<Coordinate> coordinates){
+        removeHighLight();
         coordinates.stream().forEach(coordinate -> getCellAt(coordinate).highlight());
         System.out.println(coordinates);
         System.out.println(this);
@@ -47,11 +49,9 @@ public class Board {
 
     public boolean kingDEAD(){
         if (vivas.count(Piece.Type.BLACK_KING)==0){
-            System.out.println("\nGANAN LAS BLANCAS");
             return true;
         }
         if (vivas.count(Piece.Type.WHITE_KING)==0){
-            System.out.println("\nGANAN LAS NEGRAS");
             return true;
         }
         return false;
@@ -64,17 +64,13 @@ public class Board {
             count+=colorize(" ",Cell.Color.BLACK.getAttribute())+colorize(type.getShape(),type.getColor().getAttribute(),Cell.Color.BLACK.getAttribute())+colorize(" ",Cell.Color.BLACK.getAttribute());
         }
         count+="\n";
-        for (Piece.Type type:Piece.Type.values()){
-            count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+vivas.count(type),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-        }
+        count+=vivas.toString();
         count+="\nMUERTAS\n";
         for (Piece.Type type:Piece.Type.values()){
             count+=colorize(" ",Cell.Color.BLACK.getAttribute())+colorize(type.getShape(),type.getColor().getAttribute(),Cell.Color.BLACK.getAttribute())+colorize(" ",Cell.Color.BLACK.getAttribute());
         }
         count+="\n";
-        for (Piece.Type type:Piece.Type.values()){
-                count+=colorize(" ",Cell.Color.WHITE.getAttribute())+colorize(""+(muertas.count(type)),Piece.Color.BLACK.getAttribute(),Cell.Color.WHITE.getAttribute())+colorize(" ",Cell.Color.WHITE.getAttribute()) ;
-        }
+        count+=muertas.toString();
         return count;
     }
 

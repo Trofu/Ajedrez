@@ -1,9 +1,10 @@
 package es.ieslavereda.Model;
 
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class Rook extends Piece {
+public class Rook extends Piece implements Serializable {
     public Rook(Board board, Coordinate position, Type type) {
         super(type.getType(), board.getCellAt(position));
     }

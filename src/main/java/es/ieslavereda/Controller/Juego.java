@@ -2,12 +2,17 @@ package es.ieslavereda.Controller;
 
 import es.ieslavereda.Model.*;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class Juego {
+public class Juego implements Serializable {
 
     private Board tablero;
     private DeletedPieceManagerListImp piezas;
+
+    private Map<Integer,List<Coordinate>> movements;
 
 
     public Juego() {
@@ -15,6 +20,7 @@ public class Juego {
         piezas = new DeletedPieceManagerListImp();
         addPieces();
         tablero.setVivas(piezas);
+        movements = new HashMap<>();
     }
 
 
@@ -37,7 +43,7 @@ public class Juego {
         piezas.addPiece(new Rook(tablero,new Coordinate('H',1), Rook.Type.WHITE));
         piezas.addPiece(new Pawn(tablero,new Coordinate('A',7), Pawn.Type.BLACK));
         piezas.addPiece(new Pawn(tablero,new Coordinate('B',7), Pawn.Type.BLACK));
-        //piezas.addPiece(new Pawn(tablero,new Coordinate('C',7), Pawn.Type.BLACK));
+        piezas.addPiece(new Pawn(tablero,new Coordinate('C',7), Pawn.Type.BLACK));
         piezas.addPiece(new Pawn(tablero,new Coordinate('D',7), Pawn.Type.BLACK));
         piezas.addPiece(new Pawn(tablero,new Coordinate('E',7), Pawn.Type.BLACK));
         piezas.addPiece(new Pawn(tablero,new Coordinate('F',7), Pawn.Type.BLACK));
@@ -45,7 +51,7 @@ public class Juego {
         piezas.addPiece(new Pawn(tablero,new Coordinate('H',7), Pawn.Type.BLACK));
         piezas.addPiece(new Pawn(tablero,new Coordinate('A',2), Pawn.Type.WHITE));
         piezas.addPiece(new Pawn(tablero,new Coordinate('B',2), Pawn.Type.WHITE));
-        piezas.addPiece(new Pawn(tablero,new Coordinate('C',7), Pawn.Type.WHITE));
+        piezas.addPiece(new Pawn(tablero,new Coordinate('C',2), Pawn.Type.WHITE));
         piezas.addPiece(new Pawn(tablero,new Coordinate('D',2), Pawn.Type.WHITE));
         piezas.addPiece(new Pawn(tablero,new Coordinate('E',2), Pawn.Type.WHITE));
         piezas.addPiece(new Pawn(tablero,new Coordinate('F',2), Pawn.Type.WHITE));
@@ -57,16 +63,16 @@ public class Juego {
         return tablero;
     }
 
-    public void playGame(){
+    public void playGame() throws IOException {
+        boolean save ;
         do {
-            if (tablero.isWhite()){
-                System.out.println("PLAYER WHITE YOUR TURN");
-            }else {
-                System.out.println("PLAYER BLACK YOUR TURN");
+            System.out.println("PLAYER "+(tablero.isWhite() ? "WHITE" : "BLACK")+" YOUR TURN");
+            if (save = Files.saveGame(this)){
+                break;
             }
             System.out.println(tablero);
             Coordinate c1;
-            boolean yes = false,maybe=false;
+            boolean yes = false, maybe=false;
             do {
                 if (yes){
                     if (maybe){
@@ -79,8 +85,8 @@ public class Juego {
                 }
                 c1 = pedirCordenada();
                 maybe = !tablero.getCellAt(c1).isEmpty() && tablero.getCellAt(c1).getPiece().getNextMovements().size()==0;
-            }while (yes = (tablero.getCellAt(c1).isEmpty()||(tablero.getCellAt(c1).getPiece().getColor()== Piece.Color.BLACK && (tablero.isWhite()))||(tablero.getCellAt(c1).getPiece().getColor()== Piece.Color.WHITE && !(tablero.isWhite()))||tablero.getCellAt(c1).getPiece().getNextMovements().size()==0));
-            tablero.removeHighLight();
+            }while (yes = (tablero.getCellAt(c1).isEmpty()||(tablero.getCellAt(c1).getPiece().getColor() == (tablero.isWhite()?Piece.Color.BLACK:Piece.Color.WHITE))
+                    ||tablero.getCellAt(c1).getPiece().getNextMovements().size()==0));
             tablero.highLight(tablero.getCellAt(c1).getPiece().getNextMovements());
             Coordinate c2;
             do {
@@ -92,48 +98,32 @@ public class Juego {
                 c2 = pedirCordenada();
             }while (yes = (!tablero.getCellAt(c1).getPiece().getNextMovements().contains(c2)));
             tablero.getCellAt(c1).getPiece().moveTo(c2);
-            if (tablero.isWhite()) {
-                Piece king = null;
-                for (Piece piece :tablero.getVivas().getPieceList()){
-                    if (piece.getType() == Piece.Type.BLACK_KING){
-                        king = piece;
-
+            if (!tablero.kingDEAD()){
+                List<Piece> king = tablero.getVivas().getPieceList().stream().filter(piece -> piece.getType()==(tablero.isWhite()?Piece.Type.BLACK_KING:Piece.Type.WHITE_KING)).collect(Collectors.toList());
+                for (Coordinate coordinate:tablero.getCellAt(c2).getPiece().getNextMovements()){
+                    if (king.get(1).getCell() != null && coordinate.equals(king.get(1).getCell().getCoordinate())){
+                        System.out.println((tablero.isWhite() ? "white" : "black")+" king are in check");
+                        tablero.getCellAt(coordinate).highlightJaque();
+                        King k1 = (King) king;
+                        k1.setCheck(true);
                     }
                 }
-                if (!tablero.kingDEAD()){
-                    for (Coordinate coordinate:tablero.getCellAt(c2).getPiece().getNextMovements()){
-                        if (king.getCell() != null && coordinate.equals(king.getCell().getCoordinate())){
-                            System.out.println("Rey negro estas en JAQUE");
-                            tablero.getCellAt(coordinate).highlightJaque();
-                        }
-                    }
-                }
-                tablero.setWhite(false);
-            }else {
-                Piece king = null;
-                for (Piece piece :tablero.getVivas().getPieceList()){
-                    if (piece.getType() == Piece.Type.WHITE_KING){
-                        king = piece;
-
-                    }
-                }
-                if (!tablero.kingDEAD()){
-                    for (Coordinate coordinate:tablero.getCellAt(c2).getPiece().getNextMovements()){
-                        if (king.getCell() != null && coordinate.equals(king.getCell().getCoordinate())){
-                            System.out.println("Rey Blanco estas en JAQUE");
-                            tablero.getCellAt(coordinate).highlightJaque();
-                        }
-                    }
-                }
-                tablero.setWhite(true);
             }
+            tablero.setWhite(!tablero.isWhite());
         }while (!tablero.kingDEAD());
+        if (save){
+            System.out.println("Game Save");
+        }else {
+            System.out.println("WIN "+(!tablero.isWhite() ? "WHITE" : "BLACK")+" PLAYER");
+        }
     }
+
+
 
 
     public Coordinate pedirCordenada(){
         Scanner sc = new Scanner(System.in);
-        boolean yes=false,yes2=false,yes3=false;
+        boolean yes=false,yes2=false;
         Coordinate coord;
         System.out.println("Enter a coordinate: ");
         do {

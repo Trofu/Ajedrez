@@ -1,11 +1,24 @@
 package es.ieslavereda.Model;
 
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class King extends Piece{
+public class King extends Piece implements Serializable {
+
+    private boolean check;
+
     public King(Board board, Coordinate position, Type type) {
         super(type.getType(), board.getCellAt(position));
+        check=false;
+    }
+
+    public boolean isCheck() {
+        return check;
+    }
+
+    public void setCheck(boolean check) {
+        this.check = check;
     }
 
     //put your task here
